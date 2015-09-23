@@ -15,6 +15,7 @@
 		C5D134061BB32C5600B89035 /* favorite_PlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D134051BB32C5600B89035 /* favorite_PlacesTests.swift */; };
 		C5D134101BB32CA300B89035 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5D1340F1BB32CA300B89035 /* CoreLocation.framework */; };
 		C5D134121BB32FFE00B89035 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D134111BB32FFE00B89035 /* TableViewController.swift */; };
+		C5D134141BB337CB00B89035 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D134131BB337CB00B89035 /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		C5D134051BB32C5600B89035 /* favorite_PlacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favorite_PlacesTests.swift; sourceTree = "<group>"; };
 		C5D1340F1BB32CA300B89035 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C5D134111BB32FFE00B89035 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C5D134131BB337CB00B89035 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				C5D133F81BB32C5600B89035 /* LaunchScreen.xib */,
 				C5D133ED1BB32C5500B89035 /* Supporting Files */,
 				C5D134111BB32FFE00B89035 /* TableViewController.swift */,
+				C5D134131BB337CB00B89035 /* Place.swift */,
 			);
 			path = "favorite Places";
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				C5D133F21BB32C5500B89035 /* ViewController.swift in Sources */,
 				C5D134121BB32FFE00B89035 /* TableViewController.swift in Sources */,
 				C5D133F01BB32C5500B89035 /* AppDelegate.swift in Sources */,
+				C5D134141BB337CB00B89035 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
