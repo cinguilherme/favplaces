@@ -8,9 +8,9 @@
 
 import UIKit
 
-var favoritePlaces:NSMutableArray = NSMutableArray()
+var favoritePlaces = [Dictionary<String,String>()]
 
-var selectedPlace:Place = Place()
+var selectedPlace = -1
 
 class TableViewController: UITableViewController {
     
@@ -19,24 +19,27 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var home:Place = Place()
-        home.name = "Home"
-        home.latitude = 40
-        home.longitude = -2
-        favoritePlaces.addObject(home)
-        var otherHome = Place()
-        otherHome.name = "Home somewhere else"
-        otherHome.latitude = 35
-        otherHome.longitude = -2
-        favoritePlaces.addObject(otherHome)
+        println("mytableview didload just called")
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if favoritePlaces.count == 1 {
+            favoritePlaces.removeAtIndex(0)
+            favoritePlaces.append(["name":"Taj Mahal","lat":"40","lon":"40"])
+        }
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey("places") != nil {
+                favoritePlaces = NSUserDefaults.standardUserDefaults().objectForKey("places") as! [Dictionary<String,String>]
+                println("just recovered favorite places from NSUserDefa")
+            
+        }
+        
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        println("reload?")
+        myTableView.reloadData()
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,14 +48,10 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return favoritePlaces.count
     }
 
@@ -61,11 +60,10 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
-        var cellPlace = favoritePlaces[indexPath.row] as! Place
-        cell.textLabel?.text = cellPlace.name
-        println("\(cellPlace.latitude) \(cellPlace.longitude)")
+        var cellPlace = favoritePlaces[indexPath.row]
         
-
+        cell.textLabel?.text = cellPlace["name"]
+        
         return cell
     }
 
@@ -115,10 +113,9 @@ class TableViewController: UITableViewController {
         if (sender as? UITableViewCell != nil) {
             var cell: UITableViewCell = sender as! UITableViewCell
             var indexPath:NSIndexPath = myTableView.indexPathForCell(cell)!
-            selectedPlace = favoritePlaces[indexPath.row] as! Place
-            
+            selectedPlace = indexPath.row
         } else {
-            selectedPlace = favoritePlaces[0] as! Place
+            selectedPlace = -1
         }
     }
     

@@ -31,7 +31,7 @@
                     <navigationItem key="navigationItem" title="Places" id="Pmh-2E-lb1">
                         <barButtonItem key="rightBarButtonItem" title="Map" id="um0-m0-ej2">
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" id="KCM-XL-3Lh"/>
+                                <segue destination="vXZ-lx-hvc" kind="show" identifier="newPlace" id="KCM-XL-3Lh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -90,6 +90,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="V8M-eD-RyY"/>
+        <segue reference="KCM-XL-3Lh"/>
     </inferredMetricsTieBreakers>
 </document>
